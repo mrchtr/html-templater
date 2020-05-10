@@ -2,7 +2,46 @@
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+Service which provides a simple html-templater. Two endpoint are available. 
+
+- POST /api/convert
+- POST /api/convert/pdf
+
+Both endpoints takes the accept the same payload. 
+
+```json
+{
+"html": "<div>Hello World! {{name}} </div>",
+"placeholder": {
+  "name" : "Morty"
+  }
+}
+```  
+
+The service will replacing the placeholder (default given in double brackets) with the specific given values.  
+The response of the first endpoint is the plain html code. Second one provides a PDF download. 
+
+Example api call:
+```shell script
+curl --location --request POST 'localhost:8080/api/convert' \
+--header 'Content-Type: application/json' \
+--header 'Content-Type: application/json' \
+--data-raw '{	
+	"html": "<div>Hello World! {{name}}</div>",
+	"placeholder": {
+		"name": "Morty"
+	}
+}'
+```
+
+## Running Service with Docker
+
+Run container directly with use of docker.
+
+```shell script
+docker pull docker.pkg.github.com/mrchtr/html-templater/app:0.0.1
+docker run -i --rm -p 8080:8080 docker.pkg.github.com/mrchtr/html-templater/app:0.0.1
+```
 
 ## Running the application in dev mode
 
