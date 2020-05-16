@@ -39,8 +39,8 @@ curl --location --request POST 'localhost:8080/api/convert' \
 Run container directly with use of docker.
 
 ```shell script
-docker pull docker.pkg.github.com/mrchtr/html-templater/app:0.0.1
-docker run -i --rm -p 8080:8080 docker.pkg.github.com/mrchtr/html-templater/app:0.0.1
+docker pull docker.pkg.github.com/mrchtr/html-templater/app:0.0.3
+docker run -i --rm -p 8080:8080 docker.pkg.github.com/mrchtr/html-templater/app:0.0.3
 ```
 
 ## Running the application in dev mode
